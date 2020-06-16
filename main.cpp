@@ -2,9 +2,9 @@
 #include "mbed_bme680.h"
 
 #if TARGET_NUMAKER_IOT_M263A
-I2C sensor_i2c(PD_4, PD_5);
+I2C i2c(PD_4, PD_5);
 #else
-I2C sensor_i2c(I2C_SDA, I2C_SCL);  // Used inside the BME680 Mbed Lib.
+I2C i2c(I2C_SDA, I2C_SCL);  // Used inside the BME680 Mbed Lib.
 #endif
 
 BME680 bme680(0x76 << 1);
