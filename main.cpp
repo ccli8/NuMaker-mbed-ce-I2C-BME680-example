@@ -1,13 +1,13 @@
 #include "mbed.h"
 #include "mbed_bme680.h"
 
-#if TARGET_NUMAKER_IOT_M263A
-I2C i2c(PD_4, PD_5);
-#else
-I2C i2c(I2C_SDA, I2C_SCL);  // Used inside the BME680 Mbed Lib.
-#endif
+using namespace mbed_nuvoton;
 
-BME680 bme680(0x76 << 1);
+#if TARGET_NUMAKER_IOT_M263A
+BME680 bme680(PD_4, PD_5, 0x76 << 1);
+#else
+BME680 bme680(I2C_SDA, I2C_SCL, 0x76 << 1);
+#endif
 
 int main()
 {
@@ -35,6 +35,6 @@ int main()
             printf("%0.2f\r\n", bme680.getGasResistance() / 1000.0);
         }
 
-        thread_sleep_for(1000);
+        ThisThread::sleep_for(1000ms);
     }
 }

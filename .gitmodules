@@ -1,0 +1,6 @@
+[submodule "mbed-os"]
+	path = mbed-os
+	url = https://github.com/mbed-ce/mbed-os
+[submodule "NuMaker-mbed-ce-BME680-driver"]
+	path = NuMaker-mbed-ce-BME680-driver
+	url = https://github.com/mbed-nuvoton/NuMaker-mbed-ce-BME680-driver
